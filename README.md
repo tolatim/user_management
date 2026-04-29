@@ -48,8 +48,8 @@ src/
 ## 1. Clone project
 
 ```bash
-git clone https://github.com/your-username/user-management-api.git
-cd user-management-api
+git clone https://github.com/tolatim/user_management.git
+cd user_management
 ```
 
 ---
@@ -75,7 +75,7 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100),
   age INT,
-  gender VARCHAR(10)
+  email VARCHAR(200)
 );
 ```
 
@@ -89,7 +89,7 @@ Create `.env` file:
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=
-DB_NAME=test_db
+DB_NAME=users_db
 PORT=3000
 ```
 
@@ -101,18 +101,6 @@ PORT=3000
 
 ```bash
 npm run dev
-```
-
-### Build project
-
-```bash
-npm run build
-```
-
-### Run production
-
-```bash
-node dist/server.js
 ```
 
 ---
@@ -140,7 +128,7 @@ Content-Type: application/json
 {
   "name": "tola",
   "age": 20,
-  "gender": "M"
+  "email": "tola@gmail.com"
 }
 ```
 
@@ -156,7 +144,7 @@ Content-Type: application/json
     "id": 1,
     "name": "tola",
     "age": 20,
-    "gender": "M"
+    "email": "tola@gmail.com"
   }
 }
 ```
