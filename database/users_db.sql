@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 29, 2026 at 03:38 AM
+-- Host: 127.0.0.1
+-- Generation Time: May 04, 2026 at 10:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,20 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `age` int(11) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL
+  `age` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `age`, `gender`) VALUES
-(1, 'Tola', 20, 'male'),
-(2, 'Dara', 20, 'male'),
-(3, 'Seyha', 20, 'male'),
-(4, 'Heng', 20, 'male'),
-(5, 'Tim', 20, 'male');
+INSERT INTO `users` (`id`, `name`, `age`, `email`, `created_at`) VALUES
+(1, 'Tim', 20, 'tola@gmail.com', '2026-05-04 08:52:38'),
+(5, 'Tola', 20, 'fola@gmail.com', '2026-05-04 08:53:34'),
+(6, 'Dara', 20, 'Dara@gmail.com', '2026-05-04 08:54:05');
 
 --
 -- Indexes for dumped tables
@@ -53,7 +52,8 @@ INSERT INTO `users` (`id`, `name`, `age`, `gender`) VALUES
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
